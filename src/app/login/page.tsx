@@ -6,7 +6,6 @@ import { LockSimple } from '@phosphor-icons/react'
 import { useForm, FieldValues } from 'react-hook-form'
 import { useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
-import { data } from 'autoprefixer'
 
 type SignInData = {
   email: string;

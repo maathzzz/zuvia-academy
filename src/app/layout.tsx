@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import 'tailwindcss/tailwind.css'
+import { AuthProvider } from '@/contexts/AuthContext'
 
 export const metadata = {
   title: 'Zuvia Academy',
@@ -14,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-full" >{children}</body>
+      <body>
+        <AuthProvider>
+          {children}
+        </AuthProvider>
+      </body>
     </html>
   )
 }

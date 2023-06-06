@@ -1,10 +1,32 @@
 'use client'
-import 'tailwindcss/tailwind.css'
 
+import 'tailwindcss/tailwind.css'
 import Head from 'next/head'
 import { LockSimple } from '@phosphor-icons/react'
+import { useForm, FieldValues } from 'react-hook-form'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
+import { data } from 'autoprefixer'
+
+type SignInData = {
+  email: string;
+  password: string;
+}
 
 export default function Login() {
+  const { register, handleSubmit } = useForm();
+  const { isAuthenticated,  signIn } = useContext(AuthContext)
+
+  async function handleSignIn(data : FieldValues) {
+    const credentials = {
+      'email': data.email,
+      'password': data.password
+    } as SignInData
+
+    await signIn(credentials)
+    console.log(credentials)
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <Head>
@@ -20,7 +42,8 @@ export default function Login() {
           /> */}
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Login - Zuvia Academy</h2>
         </div>
-        <form className="mt-8 space-y-6">
+
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit((data) => handleSignIn(data))}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
@@ -28,6 +51,7 @@ export default function Login() {
                 Email address
               </label>
               <input
+                {...register('email')}
                 id="email-address"
                 name="email"
                 type="email"
@@ -42,6 +66,7 @@ export default function Login() {
                 Password
               </label>
               <input
+                {...register('password')}
                 id="password"
                 name="password"
                 type="password"

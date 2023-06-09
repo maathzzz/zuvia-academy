@@ -4,8 +4,11 @@ import 'tailwindcss/tailwind.css'
 import Head from 'next/head'
 import { LockSimple } from '@phosphor-icons/react'
 import { useForm, FieldValues } from 'react-hook-form'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
+// import zuviaLogo from '../../../public/zuvialogo.png'
+import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 type SignInData = {
   email: string;
@@ -15,6 +18,16 @@ type SignInData = {
 export default function Login() {
   const { register, handleSubmit } = useForm();
   const { isAuthenticated,  signIn } = useContext(AuthContext)
+
+  const router = useRouter()
+
+  useEffect(() => {
+    if(isAuthenticated === false){
+      router.push('/dashboard')
+    } else {
+
+    }
+  }, [isAuthenticated, router])
 
   async function handleSignIn(data : FieldValues) {
     const credentials = {
@@ -34,9 +47,9 @@ export default function Login() {
 
       <div className="max-w-sm w-full space-y-8">
         <div>
-          {/* <img
+          {/* <Image
             className="mx-auto h-12 w-auto"
-            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+            src={zuviaLogo}
             alt="Workflow"
           /> */}
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Login - Zuvia Academy</h2>

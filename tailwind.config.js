@@ -8,15 +8,15 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'sm': {'max': '414px'},
+      'sm': {'min': '414px'},
 
-      'md': {'max': '768px'},
+      'md': {'min': '768px'},
 
-      'lg': {'max': '1024px'},
+      'lg': {'min': '1024px'},
 
-      'xl': {'max': '1280px'},
+      'xl': {'min': '1280px'},
 
-      '2xl': {'max': '1536px'},
+      '2xl': {'min': '1536px'},
     },
     extend: {},
   },

@@ -14,7 +14,9 @@ type SignInData = {
 
 type AuthContextType = {
     isAuthenticated: boolean,
+    tokenExists: string,
     signIn: (data : SignInData) => Promise<string>,
+    logOut: () => void,
 }
 
 interface CyclesContextProviderProps {
@@ -32,20 +34,24 @@ export function AuthProvider({children} : CyclesContextProviderProps) {
         
         axios.post(loginEndpoint, data).then(function (response){
 
-            const token = response.data.token
+            const token = response.data.usersAuth
             setTokenExists(token)
             setisAuthenticated(true)
+            console.log(response.data.usersAuth)
 
         }).catch(function (error) {
-            console.log(error)
             setisAuthenticated(false)
         })
 
         return tokenExists;
     }
 
+    function logOut() {
+        setisAuthenticated(false)
+    }
+
     return (
-        <AuthContext.Provider value={{ isAuthenticated, signIn }}>
+        <AuthContext.Provider value={{ isAuthenticated, signIn, tokenExists, logOut }}>
             {children}
         </AuthContext.Provider>
     )

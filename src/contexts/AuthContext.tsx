@@ -1,6 +1,10 @@
 "use client"
 import axios from "axios";
 import { createContext, ReactNode, useState } from "react";
+import { useToast } from '@chakra-ui/react'
+import Router from 'next/router'
+import { useNavigate } from "react-router-dom";
+import { useRouter } from 'next/navigation'
 
 
 type SignInData = {
@@ -21,26 +25,23 @@ export const AuthContext = createContext({} as AuthContextType)
 
 export function AuthProvider({children} : CyclesContextProviderProps) {
     const [ isAuthenticated, setisAuthenticated ] = useState(false);
-    const [ loading, setLoading ] = useState(true);
+    const [ tokenExists, setTokenExists ] = useState(String)
 
     async function signIn(data : SignInData) {
-        let token = ''
-
         const loginEndpoint = 'https://zuvia-academy.vercel.app/users/login'
-        // const credentials = {
-        //     email: 'matheus.amorim@zuvia.com.br',
-        //     password: '123456'
-        // };
         
-        axios.post(loginEndpoint, data).then(response => {
-            token = response.data.token
-            console.log(token)
-        }).catch(error => {
+        axios.post(loginEndpoint, data).then(function (response){
+
+            const token = response.data.token
+            setTokenExists(token)
+            setisAuthenticated(true)
+
+        }).catch(function (error) {
             console.log(error)
+            setisAuthenticated(false)
         })
 
-
-        return token;
+        return tokenExists;
     }
 
     return (

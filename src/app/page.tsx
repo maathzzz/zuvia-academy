@@ -145,9 +145,9 @@ export default function Index() {
                 >
                   Quero começar
                 </a>
-                <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                <Link href="/login" className="text-sm font-semibold leading-6 text-gray-900">
                   Já tenho conta <span aria-hidden="true">→</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

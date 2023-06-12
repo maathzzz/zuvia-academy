@@ -57,6 +57,11 @@ export function AuthProvider({children} : CyclesContextProviderProps) {
     }
 
     function logOut() {
+        if (typeof window !== 'undefined') {
+            // Perform localStorage action
+            const item = localStorage.getItem('key')
+        }
+        
         localStorage.removeItem('token')
         setisAuthenticated(false)
     }

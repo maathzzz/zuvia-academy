@@ -41,9 +41,8 @@ function classNames(...classes : ClassNamesParams[]) {
 
 export default function Dashboard() {
   const { logOut, isAuthenticated, tokenExists } = useContext(AuthContext)
-  
+
   const router = useRouter()
-  const token = localStorage.getItem('token')
 
   function handleLogout() {
     logOut()
@@ -51,14 +50,15 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
+    const token = localStorage.getItem('token')
     console.log(token)
 
     if (token){
-      
     } else {
       redirect('/login')
     }
-  }, [token])
+  }, [])
+
   return (
     <>
       <div className="min-h-full">

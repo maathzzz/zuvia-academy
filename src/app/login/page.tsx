@@ -7,7 +7,6 @@ import { useForm, FieldValues } from 'react-hook-form'
 import { useContext, useEffect } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 // import zuviaLogo from '../../../public/zuvialogo.png'
-import { useToast } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
 
 type SignInData = {
@@ -20,22 +19,14 @@ export default function Login() {
   const { isAuthenticated,  signIn } = useContext(AuthContext)
 
   const router = useRouter()
-  const toast = useToast()
 
   useEffect(() => {
     if(isAuthenticated === true){
       router.push('/dashboard')
     } else {
-      () =>
-      toast({
-        title: 'Account created.',
-        description: "We've created your account for you.",
-        status: 'success',
-        duration: 9000,
-        isClosable: true,
-      })
+
     }
-  }, [isAuthenticated, router, toast])
+  }, [isAuthenticated, router])
 
   async function handleSignIn(data : FieldValues) {
     const credentials = {
@@ -123,14 +114,6 @@ export default function Login() {
           <div>
             <button
               type="submit"
-              onClick={() =>
-                toast({
-                  title: 'Account created.',
-                  description: "We've created your account for you.",
-                  status: 'success',
-                  duration: 9000,
-                  isClosable: true,
-                })}
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               <span className="absolute left-0 inset-y-0 flex items-center pl-3">

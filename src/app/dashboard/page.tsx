@@ -40,7 +40,7 @@ function classNames(...classes : ClassNamesParams[]) {
 }
 
 export default function Dashboard() {
-  const { logOut, isAuthenticated } = useContext(AuthContext)
+  const { logOut, isAuthenticated, tokenExists } = useContext(AuthContext)
   const router = useRouter()
 
   function handleLogout() {
@@ -49,12 +49,15 @@ export default function Dashboard() {
   }
 
   useEffect(() => {
-    if(isAuthenticated === false){
-      redirect('/login')
-    } else {
 
+    console.log(tokenExists)
+
+    if (tokenExists){
+      
+    } else {
+      redirect('/login')
     }
-  }, [isAuthenticated, router])
+  }, [tokenExists])
   return (
     <>
       <div className="min-h-full">

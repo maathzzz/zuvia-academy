@@ -1,8 +1,9 @@
 "use client"
 import './globals.css'
-import { Inter } from 'next/font/google'
 import 'tailwindcss/tailwind.css'
 import { AuthProvider } from '@/contexts/AuthContext'
+import { ChakraProvider } from "@chakra-ui/react"
+import Head from 'next/head'
 
 export const metadata = {
   title: 'Zuvia Academy',
@@ -14,14 +15,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
   return (
+    <>
     <html lang="en">
+      <head> 
+        <title> Zuvia Academy | Mundo Cripto & Web3 para todos. </title>
+      </head>
       <body>
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        <ChakraProvider>
+          <AuthProvider>
+            {children}
+          </AuthProvider>
+        </ChakraProvider>
       </body>
     </html>
+    </>
   )
 }

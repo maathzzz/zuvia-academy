@@ -29,18 +29,27 @@ export function AuthProvider({children} : CyclesContextProviderProps) {
     const [ isAuthenticated, setisAuthenticated ] = useState(false);
     const [ tokenExists, setTokenExists ] = useState(String)
 
+    const toast = useToast()
+
     async function signIn(data : SignInData) {
         const loginEndpoint = 'https://zuvia-academy.vercel.app/users/login'
         
         axios.post(loginEndpoint, data).then(function (response){
-
             const token = response.data.usersAuth
             setTokenExists(token)
             setisAuthenticated(true)
-            console.log(response.data.usersAuth)
+            console.log(token)
 
-        }).catch(function (error) {
+        }).catch(function (error){
+            // alert(error.response.data.message)
             setisAuthenticated(false)
+            toast({
+                title: 'Falha ao entrar',
+                description: "Usuário ou senha podem estar incorretos.",
+                status: 'error',
+                duration: 4000,
+                isClosable: true,
+            })
         })
 
         return tokenExists;

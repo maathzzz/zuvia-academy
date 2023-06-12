@@ -6,7 +6,7 @@ import { LockSimple } from '@phosphor-icons/react'
 import { useForm, FieldValues } from 'react-hook-form'
 import { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
-import { useRouter } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { Dialog } from '@headlessui/react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -29,6 +29,15 @@ export default function Login() {
 
   const router = useRouter()
 
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    if(token){
+      redirect('dashboard')
+    } else {
+
+    }
+  })
+  
   useEffect(() => {
     if(isAuthenticated === true){
       router.push('/dashboard')

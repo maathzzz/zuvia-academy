@@ -5,6 +5,7 @@ import { Dialog } from '@headlessui/react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Head from 'next/head'
+import { List, X } from '@phosphor-icons/react'
 // import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
@@ -43,7 +44,7 @@ export default function Index() {
                 onClick={() => setMobileMenuOpen(true)}
               >
                 <span className="sr-only">Abrir mobile</span>
-                {/* <Bars3Icon className="h-6 w-6" aria-hidden="true" /> */}
+                <List size={24} color="#1A1D56" />
               </button>
             </div>
             <div className="hidden lg:flex lg:gap-x-12">
@@ -77,7 +78,7 @@ export default function Index() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
-                  {/* <XMarkIcon className="h-6 w-6" aria-hidden="true" /> */}
+                  <X size={24} color="#1A1D56" />
                 </button>
               </div>
               <div className="mt-6 flow-root">
@@ -95,10 +96,10 @@ export default function Index() {
                   </div>
                   <div className="py-6">
                     <a
-                      href="#"
+                      href="/login"
                       className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                     >
-                      Log in
+                      Entrar
                     </a>
                   </div>
                 </div>
@@ -140,7 +141,7 @@ export default function Index() {
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <a
                   href="#"
-                  className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-violet-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Quero começar
                 </a>

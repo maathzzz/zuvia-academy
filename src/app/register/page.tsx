@@ -128,7 +128,7 @@ export default function Register() {
             src={zuviaLogo}
             alt="Workflow"
           /> */}
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800"> Cadastro - Zuvia <span className="text-blue-500">Academy</span></h2>
+          <h2 className="mt-6 text-center text-4xl font-extrabold text-gray-800"> Criar <span className="text-blue-500">Conta</span></h2>
         </div>
         <form onSubmit={handleSubmit((data) => handleRegisterUser(data))}>
             <div className="space-y-12">

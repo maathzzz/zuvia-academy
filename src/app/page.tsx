@@ -9,9 +9,9 @@ import { List, X } from '@phosphor-icons/react'
 // import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Zuvia', href: 'zuvia.com.br' },
-  { name: 'Pay', href: 'zuviapay.com.br' },
-  { name: 'Tokenização', href: '#' },
+  { name: 'Zuvia', href: 'https://zuvia.com.br' },
+  { name: 'Pay', href: 'https://zuviapay.com.br' },
+  { name: 'Token', href: '#' },
 ]
 
 export default function Index() {
@@ -101,6 +101,12 @@ export default function Index() {
                     >
                       Entrar
                     </a>
+                    <a
+                      href="/register"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Criar Conta
+                    </a>
                   </div>
                 </div>
               </div>
@@ -121,7 +127,7 @@ export default function Index() {
               }}
             />
           </div>
-          <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+          {/* <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
             <div className="hidden sm:mb-8 sm:flex sm:justify-center">
               <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-800 ring-1 ring-gray-900/10 hover:ring-gray-900/30">
                 Compre cripto com as taixas mais baixas do mercado.{' '}
@@ -150,7 +156,37 @@ export default function Index() {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> */}
+          <section className="mt-48 mx-auto max-w-screen-xl pb-12 px-4 items-center lg:flex md:px-8">
+                <div className="flex flex-col items-center gap-6 space-y-4 flex-1 sm:text-center lg:text-center">
+                    <div className="text-center hidden lg:block w-96 relative rounded-full px-3 py-1 text-sm leading-6 text-gray-800 ring-1 ring-gray-900/10 hover:ring-gray-900/30">
+                      Compre cripto com as taixas mais baixas do mercado.{' '}
+                      <a href="#" className="font-semibold text-blue-500">
+                        <span className="absolute inset-0" aria-hidden="true" />
+                        Saiba mais <span aria-hidden="true">&rarr;</span>
+                      </a>
+                    </div>
+                    <h1 className="text-7xl font-bold tracking-tight text-gray-800">
+                        Zuvia
+                        <span className="text-blue-500"> Academy </span>
+                    </h1>
+                    <p className="text-gray-800 max-w-xl leading-relaxed sm:text-center">
+                    Bem-vindo ao Zuvia Academy! Aqui você encontrará um conjunto de recursos educacionais projetados para ajudá-lo(a) a compreender e dominar os conceitos fundamentais por trás da Web3 e do mundo das criptomoedas.
+                    </p>
+                    <div className="pt-8 items-center justify-center space-y-3 sm:space-x-6 sm:space-y-0 sm:flex lg:justify-center">
+                        <a href="/register" className="px-7 py-3 w-full bg-blue-500 text-white text-center rounded-md shadow-md block sm:w-auto">
+                            Começar
+                        </a>
+                        <a href="/login" className="px-7 py-3 w-full bg-gray-700 text-gray-200 text-center rounded-md block sm:w-auto">
+                            Entrar
+                        </a>
+                    </div>
+                </div>
+                <div className="flex-1 text-center mt-7 lg:mt-0 lg:ml-3">
+                    <img src="https://i.postimg.cc/HxHyt53c/undraw-heatmap-uyye.png" className="w-full mx-auto sm:w-10/12  lg:w-full" />
+                </div>
+            </section>
+
           <div
             className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
             aria-hidden="true"
@@ -164,9 +200,9 @@ export default function Index() {
             />
           </div>
         </div>
-        <div className='w-full h-[20rem] bg-blue-500'>
+        {/* <div className='w-full h-[20rem] bg-blue-500'>
 
-        </div>
+        </div> */}
       </div>
     </>
   )

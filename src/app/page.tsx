@@ -177,7 +177,7 @@ export default function Index() {
                         <a href="/register" className="px-7 py-3 w-full bg-blue-500 text-white text-center rounded-md shadow-md block sm:w-auto">
                             Começar
                         </a>
-                        <a href="/login" className="px-7 py-3 w-full bg-gray-700 text-gray-200 text-center rounded-md block sm:w-auto">
+                        <a href="/login" className="px-7 py-3 w-full bg-gray-800 text-gray-200 text-center rounded-md block sm:w-auto">
                             Entrar
                         </a>
                     </div>

@@ -12,9 +12,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { List, X } from '@phosphor-icons/react'
 
-type SignInData = {
-  email: string;
-  password: string;
+type RegisterData = {
+    name: string,
+    email: string,
+    password: string
 }
 
 const navigation = [
@@ -23,22 +24,16 @@ const navigation = [
 ]
 
 export default function Register() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { register, handleSubmit } = useForm();
-  const { isAuthenticated,  signIn } = useContext(AuthContext)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const { register, handleSubmit } = useForm();
+    const { registerUser } = useContext(AuthContext)
 
-  const router = useRouter()
+    const router = useRouter()
 
-  async function Register(data : FieldValues) {
-
-    const credentials = {
-      'email': data.email,
-      'password': data.password
-    } as SignInData
-
-    await signIn(credentials)
-    console.log(credentials)
-  }
+    async function handleRegisterUser(data : FieldValues) {
+        registerUser(data as RegisterData)
+        console.log(data)
+    }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -135,7 +130,7 @@ export default function Register() {
           /> */}
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-800"> Cadastro - Zuvia <span className="text-blue-500">Academy</span></h2>
         </div>
-        <form>
+        <form onSubmit={handleSubmit((data) => handleRegisterUser(data))}>
             <div className="space-y-12">
                 <div className="border-b border-gray-900/10 pb-12">
                     <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -147,9 +142,10 @@ export default function Register() {
                                 <input
                                 {...register('name')}
                                 type="text"
-                                name="first-name"
-                                id="first-name"
+                                name="name"
+                                id="name"
                                 autoComplete="given-name"
+                                required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 />
                             </div>
@@ -187,6 +183,7 @@ export default function Register() {
                                 name="password"
                                 id="password"
                                 autoComplete="given-name"
+                                required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 />
                             </div>
@@ -206,18 +203,24 @@ export default function Register() {
                             </div>
                         </div>
                     </div>
+                    
+                    <div className='mt-10'>
+                      <button
+                          type="submit"
+                          className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                      <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                          {/* <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" /> */}
+                          <BookOpen className="h-5 w-5 " aria-hidden="true"/>
+                      </span>
+                          Cadastrar
+                      </button>
+                  </div>
                 </div>
-                <div>
-                    <button
-                        type="submit"
-                        className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                    <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                        {/* <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" /> */}
-                        <BookOpen className="h-5 w-5 " aria-hidden="true"/>
-                    </span>
-                        Cadastrar
-                    </button>
+                <div className="w-full flex justify-center text-sm">
+                  <a href="/login" className="font-bold text-blue-600 hover:text-blue-900">
+                    Se você já possui um cadastro, clique aqui.
+                  </a>
                 </div>
             </div>
         </form>    

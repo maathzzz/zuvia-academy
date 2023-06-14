@@ -2,10 +2,13 @@
 import axios from "axios";
 import { createContext, ReactNode, useState } from "react";
 import { useToast } from '@chakra-ui/react'
-import Router from 'next/router'
-import { useNavigate } from "react-router-dom";
-import { useRouter } from 'next/navigation'
+import { redirect } from 'next/navigation';
 
+type RegisterData = {
+    name: string,
+    email: string,
+    password: string
+}
 
 type SignInData = {
     email: string;
@@ -15,6 +18,7 @@ type SignInData = {
 type AuthContextType = {
     isAuthenticated: boolean,
     tokenExists: string,
+    registerUser: (data : RegisterData) => void,
     signIn: (data : SignInData) => Promise<string>,
     logOut: () => void,
 }
@@ -30,6 +34,19 @@ export function AuthProvider({children} : CyclesContextProviderProps) {
     const [ tokenExists, setTokenExists ] = useState(String)
 
     const toast = useToast()
+
+    async function registerUser(data : RegisterData){
+        const registerEndpoint = 'https://zuvia-academy.vercel.app/users/register'
+
+        axios.post(registerEndpoint, data).then(function (response){
+            console.log(response.data.message)
+            alert("Usuário criado")
+
+        }).catch(function (error){
+            console.log(error)
+            alert("Não foi possível criar o usuário")
+        })
+    }
 
     async function signIn(data : SignInData) {
         const loginEndpoint = 'https://zuvia-academy.vercel.app/users/login'
@@ -67,7 +84,7 @@ export function AuthProvider({children} : CyclesContextProviderProps) {
     }
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, signIn, tokenExists, logOut }}>
+        <AuthContext.Provider value={{ isAuthenticated, signIn, tokenExists, logOut, registerUser }}>
             {children}
         </AuthContext.Provider>
     )

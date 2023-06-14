@@ -53,9 +53,9 @@ export default function Dashboard() {
     const token = localStorage.getItem('token')
     console.log(token)
 
-    if (token){
-    } else {
+    if (!token){
       redirect('/login')
+    } else {
     }
   }, [])
 
@@ -70,7 +70,9 @@ export default function Dashboard() {
           </div>
         </header>
         <main>
-          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{/* Your content */}</div>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <iframe width="660" height="415" src="https://www.youtube.com/embed/nA1BeNhM5h0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+          </div>
         </main>
       </div>
     </>

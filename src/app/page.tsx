@@ -139,12 +139,12 @@ export default function Index() {
                 Bem-vindo ao Zuvia Academy! Aqui você encontrará um conjunto de recursos educacionais projetados para ajudá-lo(a) a compreender e dominar os conceitos fundamentais por trás da Web3 e do mundo das criptomoedas.
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <a
-                  href="#"
+                <Link
+                  href="/register"
                   className="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-violet-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Quero começar
-                </a>
+                </Link>
                 <Link href="/login" className="text-sm font-semibold leading-6 text-gray-900">
                   Já tenho conta <span aria-hidden="true">→</span>
                 </Link>

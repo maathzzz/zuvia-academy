@@ -140,7 +140,7 @@ export default function Index() {
                 <div className="flex flex-col items-center gap-6 space-y-4 flex-1 sm:text-center lg:text-center">
                     <div className="text-center hidden lg:block w-96 relative rounded-full px-3 py-1 text-sm leading-6 text-gray-800 ring-1 ring-gray-900/10 hover:ring-gray-900/30">
                       Compre cripto com as taixas mais baixas do mercado.{' '}
-                      <a href="#" className="font-semibold text-blue-500">
+                      <a href="https://app.zuviapay.com.br/" target="_blank" className="font-semibold text-blue-500">
                         <span className="absolute inset-0" aria-hidden="true" />
                         Saiba mais <span aria-hidden="true">&rarr;</span>
                       </a>

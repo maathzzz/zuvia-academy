@@ -65,6 +65,7 @@ export function AuthProvider({children} : CyclesContextProviderProps) {
         
         axios.post(loginEndpoint, data).then(function (response){
             const token = response.data.usersAuth
+            console.log(response.status)
             localStorage.setItem('token', token);
             setTokenExists(token)
             setisAuthenticated(true)

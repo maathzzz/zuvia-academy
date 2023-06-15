@@ -32,7 +32,7 @@ export default function Login() {
   useEffect(()=>{
     const token = localStorage.getItem('token')
     if(token){
-      redirect('dashboard')
+      redirect('/home')
     } else {
 
     }
@@ -40,7 +40,7 @@ export default function Login() {
 
   useEffect(() => {
     if(isAuthenticated === true){
-      router.push('/dashboard')
+      router.push('/home')
     } else {
 
     }

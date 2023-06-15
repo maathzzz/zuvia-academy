@@ -40,25 +40,23 @@ export function AuthProvider({children} : CyclesContextProviderProps) {
 
         axios.post(registerEndpoint, data).then(function (response){
             console.log(response.data.message)
-            alert("user created")
-            // toast({
-            //     title: 'Cadastro concluído!',
-            //     description: "Usuário criado.",
-            //     status: 'success',
-            //     duration: 4000,
-            //     isClosable: true,
-            // })
+            toast({
+                title: 'Cadastro concluído!',
+                description: "Usuário criado.",
+                status: 'success',
+                duration: 4000,
+                isClosable: true,
+            })
 
         }).catch(function (error){
             console.log(error)
-            alert("erro")
-            // toast({
-            //     title: 'Falha ao criar cadastro!',
-            //     description: "E-mail já cadastrado.",
-            //     status: 'error',
-            //     duration: 4000,
-            //     isClosable: true,
-            // })
+            toast({
+                title: 'Falha ao criar cadastro!',
+                description: "E-mail já cadastrado.",
+                status: 'error',
+                duration: 4000,
+                isClosable: true,
+            })
         })
     }
 

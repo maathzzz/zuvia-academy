@@ -6,7 +6,6 @@ import 'tailwindcss/tailwind.css'
 import { useRouter, redirect } from 'next/navigation'
 import { AuthContext } from '@/contexts/AuthContext'
 import Image from 'next/image'
-// import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 interface TypeOfClasses {
     classes: any,
@@ -71,7 +70,7 @@ export default function Dashboard() {
         </header>
         <main>
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-            <iframe width="660" height="415" src="https://www.youtube.com/embed/nA1BeNhM5h0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+            {/* <iframe width="660" height="415" src="https://www.youtube.com/embed/nA1BeNhM5h0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe> */}
           </div>
         </main>
       </div>

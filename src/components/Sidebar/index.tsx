@@ -1,7 +1,7 @@
 "use client"
 
 import { AuthContext } from "@/contexts/AuthContext";
-import { Question, Video } from "@phosphor-icons/react";
+import { Certificate, Question, SignOut, Video } from "@phosphor-icons/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useEffect, useRef, useContext } from "react";
@@ -24,14 +24,12 @@ export function Sidebar() {
         {
             href: '#',
             name: 'Cursos',
-            icon: <Video size={24} color="#2c6381" weight="fill"/>,
+            icon: <Video size={24} color="#1A1D56" weight="fill"/>,
         },
         {
             href: '#',
-            name: 'Transactions',
-            icon: <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z" />
-            </svg>,
+            name: 'Certificado',
+            icon: <Certificate size={24} color="#1A1D56" />,
         }
     ]
 
@@ -39,7 +37,7 @@ export function Sidebar() {
         {
             href: '#',
             name: 'FAQ',
-            icon: <Question size={24} color="#2c6381" />,
+            icon: <Question size={24} color="#1A1D56"/>,
         },
         // {
         //     href: '#',
@@ -107,9 +105,7 @@ export function Sidebar() {
                                     ))
                                 }
                                 <button onClick={handleLogout} className="text-gray-600 p-2 rounded-lg  hover:bg-gray-50 active:bg-gray-100 duration-150 group"> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                                    </svg>
+                                    <SignOut size={24} color="#1A1D56" weight="bold"/>
                                     <span className="absolute left-14 p-1 px-1.5 rounded-md whitespace-nowrap text-xs text-white bg-gray-800 hidden group-hover:inline-block group-focus:hidden duration-150">
                                         Sair
                                     </span>

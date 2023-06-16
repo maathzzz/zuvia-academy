@@ -37,7 +37,7 @@ export function Sidebar() {
         {
             href: '#',
             name: 'FAQ',
-            icon: <Question size={24} color="#1A1D56"/>,
+            icon: <Question size={26} color="#1A1D56"/>,
         },
         // {
         //     href: '#',
@@ -121,7 +121,7 @@ export function Sidebar() {
                                     isProfileActive ? (
                                         <div className="absolute bottom-4 left-20 w-64 rounded-lg bg-white shadow-md border text-sm text-gray-600">
                                             <div className="p-2">
-                                                <span className="block text-gray-500/80 p-2">vienna@gmail.com</span>
+                                                <span className="block text-gray-500/80 p-2">Olá, Usuário</span>
                                                 <a href="javascript:void(0)" className="block w-full p-2 text-left rounded-md hover:bg-gray-50 active:bg-gray-100 duration-150">
                                                     Perfil
                                                 </a>
